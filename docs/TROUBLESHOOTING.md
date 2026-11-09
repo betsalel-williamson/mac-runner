@@ -1,3 +1,5 @@
+> **Ready to archive after review.** This content now lives in the client guide's troubleshooting section: [docs/client/troubleshooting/index.md](client/troubleshooting/index.md). Change it there.
+
 # Troubleshooting Mac Runner
 
 ## Container Isolation Issues
