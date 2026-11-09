@@ -3,14 +3,21 @@ name: CI
 on:
   pull_request:
     branches: [main]
+  # Forks that develop on main (trunk-based) need CI on push too. The job
+  # below skips push runs in the upstream repository, where pull requests
+  # already run it.
+  push:
+    branches: [main]
+  workflow_dispatch:
 
 concurrency:
-  group: ci-${{ github.head_ref }}
+  group: ci-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
   build-and-test:
     name: Build & Test
+    if: github.event_name != 'push' || github.repository != 'omniaura/mac-runner'
     runs-on: macos-latest
     steps:
       - name: Checkout
