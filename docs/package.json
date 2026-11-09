@@ -1,0 +1,22 @@
+{
+  "name": "mac-runner-docs",
+  "private": true,
+  "description": "Mac Runner documentation, managed with Merlon Docs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "compile": "cd .. && merlon compile --config docs/merlon.config.json --docs-root docs",
+    "lint": "cd .. && merlon lint --config docs/merlon.config.json --docs-root docs --require-lint",
+    "prose": "cd .. && merlon prose --config docs/merlon.config.json --docs-root docs --require-vale",
+    "fix": "cd .. && merlon fix --config docs/merlon.config.json --docs-root docs",
+    "review": "cd .. && merlon review --config docs/merlon.config.json --docs-root docs --strict",
+    "check": "cd .. && merlon check --config docs/merlon.config.json --docs-root docs --require-lint --require-vale"
+  },
+  "devDependencies": {
+    "@merlon-docs/merlon-docs-cli": "^1.1.0",
+    "@merlon-docs/merlon-docs-presets": "^1.1.0",
+    "markdownlint-cli2": "^0.24.0",
+    "prettier": "^3.9.10"
+  }
+}

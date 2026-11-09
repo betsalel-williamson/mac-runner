@@ -75,3 +75,7 @@ Temporary Items
 runners/
 *.env
 config.json
+
+# Merlon Docs
+docs/node_modules/
+docs/_build/

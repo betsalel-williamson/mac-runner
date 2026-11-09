@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "merlon-docs": {
+      "source": "merlon-docs/merlon",
+      "sourceType": "github",
+      "skillPath": "skills/merlon-docs/SKILL.md",
+      "computedHash": "9a6480c5842721eb6079df59db36a8066ba10cd51544adc5af1eba5c5f362486"
+    }
+  }
+}

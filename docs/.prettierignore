@@ -1,0 +1,10 @@
+# Generated and vendored
+_build/
+node_modules/
+styles/
+package-lock.json
+
+# Legacy files kept as they were, with only a "ready to archive" banner added
+TROUBLESHOOTING.md
+TESTING_PHASE6.md
+container-isolation-design.md
