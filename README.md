@@ -2,6 +2,15 @@
 
 Simple Mac menu bar app and CLI for managing GitHub Actions self-hosted runners.
 
+## Documentation
+
+- [Features](docs/features/index.md): what Mac Runner does, how it is built, and why
+- [User guide](docs/client/index.md): install, add and run runners, isolation, schedules, and troubleshooting
+- [Developer guide](docs/developer/index.md): build, test, commit, and release
+- [Glossary](docs/glossary/index.md)
+
+The guides are the source of truth; this README is an overview.
+
 ## Features
 
 - 🏃 Run multiple GitHub Actions runners on a single Mac
