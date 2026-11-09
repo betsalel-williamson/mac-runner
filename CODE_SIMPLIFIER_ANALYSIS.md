@@ -1,3 +1,5 @@
+> **Ready to archive after review.** This is a one-time code analysis and backlog; backlogs belong in the issue tracker, not durable docs.
+
 # Mac Runner Code Simplifier Analysis
 **Date:** 2026-02-18
 **Repository:** mac-runner (Swift - macOS CI runner)

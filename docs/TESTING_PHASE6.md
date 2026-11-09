@@ -1,3 +1,5 @@
+> **Ready to archive after review.** Its lasting content now lives in [docs/developer/testing.md](developer/testing.md) and [docs/features/adr/](features/adr/index.md); the rest was a dated plan. Change the shards, not this file.
+
 # Phase 6 Testing Checklist - Hybrid Isolation Strategy
 
 This document tracks Phase 6 testing and documentation tasks for Mac Runner Issue #9.

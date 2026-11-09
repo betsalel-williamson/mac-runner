@@ -1,3 +1,5 @@
+> **Ready to archive after review.** Its lasting content now lives in [docs/features/adr/0005-container-isolation-with-apple-containerization.md](features/adr/0005-container-isolation-with-apple-containerization.md) and [docs/developer/testing.md](developer/testing.md); the rest was a dated plan. Change the shards, not this file.
+
 # Container Isolation Design for Mac Runner
 
 ## Overview

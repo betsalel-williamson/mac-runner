@@ -1,3 +1,5 @@
+> **Ready to archive after review.** The release process now lives in [docs/developer/releasing.md](docs/developer/releasing.md). Change it there.
+
 # Releasing Mac Runner
 
 ## Automated Release Process
