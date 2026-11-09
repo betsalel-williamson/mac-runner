@@ -66,6 +66,8 @@ What the suite covers, and what needs a manual check: [Testing](testing.md).
 | Target           | Does                                                                                                      |
 | ---------------- | --------------------------------------------------------------------------------------------------------- |
 | `make build`     | `swift build`                                                                                             |
+| `make hooks`     | Installs the git hooks. See [Local checks](local-checks.md)                                               |
+| `make check`     | Runs every local check, the same as the `pre-push` hook                                                   |
 | `make run`       | Builds, then runs `.build/debug/mac-runner`                                                               |
 | `make test`      | `swift test`                                                                                              |
 | `make lint`      | `swift-format lint -r Sources Tests`                                                                      |

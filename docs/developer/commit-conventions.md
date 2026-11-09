@@ -17,6 +17,9 @@ version to cut. Why: [ADR 0007](../features/adr/0007-semantic-release-and-homebr
 A scope is optional, such as `fix(ci): …`. Mark a breaking change with `!`
 after the type or scope, or with a `BREAKING CHANGE:` footer.
 
+The `commit-msg` git hook rejects a subject that doesn't follow this format.
+See [Local checks](local-checks.md).
+
 ## Types and releases
 
 `.releaserc.json` sets these rules:

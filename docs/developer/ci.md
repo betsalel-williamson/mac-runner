@@ -33,9 +33,9 @@ ran it. The workflow can also be started by hand from the Actions tab.
 The build and the whole test suite. To reproduce a run locally, see
 [Build and test](build-and-test.md#run-the-tests).
 
-CI doesn't run `swift-format` or the docs check. Run `npm run check` in
-`docs/` yourself when a change touches docs, as
-[Documentation workflow](docs-workflow.md) describes.
+CI doesn't run `swift-format` or the docs check. The git hooks run the docs
+check, and build and test the same way CI does, before you push. See
+[Local checks](local-checks.md).
 
 ## The release workflow's runner
 

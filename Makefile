@@ -1,4 +1,4 @@
-.PHONY: build run clean release dmg install uninstall test
+.PHONY: build run clean release dmg install uninstall test hooks check
 
 # Build debug version
 build:
@@ -76,6 +76,15 @@ uninstall:
 # Run tests
 test:
 	swift test
+
+# Point git at the hooks in .githooks/, which run scripts/check.sh
+hooks:
+	git config core.hooksPath .githooks
+	@echo "Git hooks installed: pre-commit, commit-msg, pre-push"
+
+# Every local check, the same as the pre-push hook runs
+check:
+	scripts/check.sh all
 
 # Format code
 format:

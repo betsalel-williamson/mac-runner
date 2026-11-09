@@ -4,6 +4,15 @@
 
 - Semantic-release only cuts releases from conventional commits. For any merged user-facing fix that did not include a `fix:` or `feat:` commit on the PR branch, open a follow-up PR with an empty conventional commit, for example `fix: trigger semantic release`, so the release pipeline publishes the change.
 
+## Checks
+
+- Run `make hooks` once per clone. The git hooks run the same checks as CI;
+  see `docs/developer/local-checks.md`.
+- Never skip them with `--no-verify`, `git commit -n`, or a change to
+  `core.hooksPath`. Fix what they report. If a check is wrong, tell the
+  operator.
+- Run `make check` before you finish a change.
+
 ## Documentation
 
 - Docs use Merlon Docs. Load the `merlon-docs` skill in `.claude/skills/`

@@ -11,6 +11,7 @@ How to build, test, change, and release Mac Runner.
 - [Build and test](build-and-test.md)
 - [Testing](testing.md)
 - [Continuous integration](ci.md)
+- [Local checks](local-checks.md)
 
 ## Ship
 

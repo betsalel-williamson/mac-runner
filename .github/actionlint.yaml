@@ -1,0 +1,9 @@
+# actionlint configuration. See docs/developer/local-checks.md.
+paths:
+  # Known shellcheck findings in the signing step, which upstream wrote.
+  # SC2046 is the deliberate word splitting of the keychain list. Drop these
+  # entries when that step changes.
+  .github/workflows/release.yml:
+    ignore:
+      - "SC2046"
+      - "SC2129"
