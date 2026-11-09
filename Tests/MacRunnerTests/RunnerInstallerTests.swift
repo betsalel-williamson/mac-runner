@@ -170,7 +170,10 @@ final class ServiceUserLogCommandTests: XCTestCase {
         let result = try ProcessExecutor.run("/bin/bash", arguments: ["-c", command + " && ls -le " + "'\(log)'"])
 
         XCTAssertTrue(result.succeeded, result.output)
-        XCTAssertTrue(result.output.contains("-rw-r--r--+"), result.output)
+        // ls marks an ACL with "+", but prints "@" instead when the file also
+        // has extended attributes, which macOS adds in some environments. The
+        // ACL itself is checked below.
+        XCTAssertTrue(result.output.contains("-rw-r--r--+") || result.output.contains("-rw-r--r--@"), result.output)
         XCTAssertTrue(result.output.contains("user:\(NSUserName()) allow write,append"), result.output)
     }
 }
