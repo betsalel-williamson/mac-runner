@@ -15,9 +15,28 @@ permissions:
   pull-requests: write
 
 jobs:
+  # Releases only ever happen in the upstream repository. In a fork, every
+  # release job is skipped and fork-notice explains why, so a push to a fork's
+  # main never tags, publishes, or touches the Homebrew tap.
+  fork-notice:
+    name: Release skipped in fork
+    if: github.repository != 'omniaura/mac-runner'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Explain the skipped release
+        run: |
+          echo "::notice title=Release skipped::${{ github.repository }} is a fork. Releases run only in omniaura/mac-runner."
+          {
+            echo "### Release skipped"
+            echo
+            echo "\`${{ github.repository }}\` is a fork, so semantic-release, signing, and the Homebrew tap update did not run."
+            echo "Releases run only in \`omniaura/mac-runner\`."
+          } >> "$GITHUB_STEP_SUMMARY"
+
   # Step 1: Select runner (lightweight, runs on ubuntu)
   select-runner:
     name: Select runner
+    if: github.repository == 'omniaura/mac-runner'
     runs-on: ubuntu-latest
     outputs:
       runner: ${{ steps.runner.outputs.use-runner }}
@@ -39,6 +58,7 @@ jobs:
   check-release:
     name: Check for release
     needs: select-runner
+    if: github.repository == 'omniaura/mac-runner'
     runs-on: ${{ fromJson(needs.select-runner.outputs.runner) }}
     outputs:
       new_release: ${{ steps.semantic.outputs.new_release_published }}
@@ -78,7 +98,7 @@ jobs:
   build-and-release:
     name: Build & Release
     needs: [select-runner, check-release]
-    if: needs.check-release.outputs.new_release == 'true'
+    if: github.repository == 'omniaura/mac-runner' && needs.check-release.outputs.new_release == 'true'
     runs-on: ${{ fromJson(needs.select-runner.outputs.runner) }}
     steps:
       - name: Checkout
@@ -367,6 +387,7 @@ jobs:
   update-homebrew-tap:
     name: Update Homebrew tap
     needs: [check-release, build-and-release]
+    if: github.repository == 'omniaura/mac-runner'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout mac-runner (for cask source)
