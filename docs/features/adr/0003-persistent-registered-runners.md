@@ -4,6 +4,9 @@
 
 Accepted. Recorded after the fact from the code and history at 74c78d7.
 
+[ADR 0008](0008-one-job-runners-option.md) proposes one-job runners as an
+option beside this default.
+
 ## Context
 
 A self-hosted runner can register for a single job and remove itself

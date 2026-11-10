@@ -13,3 +13,4 @@ Docs.
 | [0005](0005-container-isolation-with-apple-containerization.md) | Linux runners in lightweight virtual machines                   | Accepted, recorded after the fact |
 | [0006](0006-declarative-runner-configuration.md)                | Declarative runner configuration in `.mac-runner.yml`           | Accepted, recorded after the fact |
 | [0007](0007-semantic-release-and-homebrew-cask.md)              | Automatic releases, shipped as a notarized cask                 | Accepted, recorded after the fact |
+| [0008](0008-one-job-runners-option.md)                          | One-job runners as an option beside long-lived runners          | Proposed                          |
