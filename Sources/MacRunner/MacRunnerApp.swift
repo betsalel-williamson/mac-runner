@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem!
     var popover: NSPopover!
     let runnerManager = RunnerManager()
+    let fleetService = FleetService()
     private var settingsWindow: NSWindow?
     private var logWindows: [UUID: NSWindow] = [:]
     private var dashboardWindow: NSWindow?
@@ -30,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
         JobNotificationService.shared.configure()
+        fleetService.start()
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
@@ -44,7 +46,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentSize = NSSize(width: 300, height: 430)
         popover.behavior = .transient
         popover.contentViewController = NSHostingController(
-            rootView: MenuBarView().environmentObject(runnerManager)
+            rootView: MenuBarView()
+                .environmentObject(runnerManager)
+                .environmentObject(fleetService)
         )
 
         NotificationCenter.default.addObserver(

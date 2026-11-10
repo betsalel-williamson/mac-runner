@@ -26,6 +26,7 @@ with it.
 
 - [Pause runners and set schedules](pause-and-schedules.md)
 - [Watch status, resources, and logs](logs-and-status.md)
+- [Watch and control a runner fleet](runner-fleet.md)
 - [Free disk space](disk-cleanup.md)
 - [Uninstall the app and its runners](uninstall.md)
 

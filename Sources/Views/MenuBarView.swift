@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MenuBarView: View {
     @EnvironmentObject var runnerManager: RunnerManager
+    @EnvironmentObject var fleet: FleetService
     @State private var showAddRunner = false
     @State private var collapsedTargets: Set<RunnerTarget> = []
     @State private var dismissedUpdateVersion: String?
@@ -45,11 +46,18 @@ struct MenuBarView: View {
                 .background(summary.isActive ? Color.orange.opacity(0.12) : Color.clear)
             }
 
+            if fleet.isAvailable {
+                FleetSection()
+                Divider()
+            }
+
             // Runner List
-            if runnerManager.runners.isEmpty {
-                emptyState
-            } else {
+            if !runnerManager.runners.isEmpty {
                 runnerList
+            } else if fleet.isAvailable {
+                Spacer(minLength: 0)
+            } else {
+                emptyState
             }
 
             if runnerManager.resourceUsage.count > 1 {
@@ -815,6 +823,7 @@ struct SettingsView: View {
 #Preview {
     MenuBarView()
         .environmentObject(RunnerManager())
+        .environmentObject(FleetService())
 }
 
 /// Lays out subviews left-to-right, wrapping onto additional lines when a row would exceed the available width.
